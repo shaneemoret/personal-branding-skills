@@ -1,8 +1,10 @@
 # Personal Branding Skills
 
-Production-grade AI skills for founders, consultants, and advisors who want stronger authority signals, trust-building brand assets, and more consistent inbound marketing outputs.
+Production-grade AI skills for founders, consultants, and advisors who want to turn their personal brand into a consistent source of inbound trust and demand.
 
-This repo currently starts with one focused skill and is being built carefully rather than inflated with low-quality prompt dumps.
+These are not prompt packs. Each skill is a constraint-driven system designed to produce reliable, business-ready outputs under real-world conditions.
+
+This repo starts with a single focused skill and will expand carefully into a fuller set of personal branding systems over time rather than being inflated with low-quality prompt dumps.
 
 ## Why This Repo Exists
 
@@ -10,11 +12,13 @@ Most prompt packs give you a clever first draft and then fall apart when the inp
 
 These skills are different:
 
-- constraint-driven instead of style-first
-- built for real business use cases
-- designed to preserve identity and intent
-- structured to produce a usable first pass plus refinement steps
-- hardened against common failure modes
+- **Constraint-driven, not style-first**
+- **Built for real business use cases, not demos**
+- **Designed to preserve identity and intent under iteration**
+- **Structured to produce a usable first pass plus targeted refinements**
+- **Hardened against common failure modes**
+
+These patterns are based on real-world use cases where outputs must hold up across LinkedIn thumbnails, website layouts, and public-facing brand assets.
 
 ## Current Skills
 
@@ -46,6 +50,14 @@ This repo works best with:
 - Codex-compatible local skill folders
 - tools that load a skill from a folder containing a root `SKILL.md`
 
+## How These Skills Work
+
+Every skill in this repo is designed to follow the same pattern:
+
+1. Generate a usable first pass
+2. Apply targeted refinements to the parts most likely to fail
+3. Converge to a final output that works in real conditions
+
 ## How To Use It
 
 1. Clone the repo:
@@ -55,7 +67,7 @@ git clone https://github.com/shaneemoret/personal-branding-skills.git
 cd personal-branding-skills
 ```
 
-2. Install the skill into your local skills directory.
+2. Install the skill into your local skills directory. The exact location depends on your tool.
 
 For Codex-compatible setups, `CODEX_HOME` is the local directory where installed skills live.
 
@@ -82,13 +94,7 @@ After copying the skill into your tool's skills directory, restart the tool and 
 
 > Create a LinkedIn headshot prompt for a consultant using a reference photo.
 
-You should get back:
-
-- a recommended visual direction
-- a quick baseline prompt
-- a base generation prompt
-- refinement prompts for lighting, expression, and crop
-- a likely failure mode plus a fix instruction
+If the install worked, the model should respond in the structured format described below rather than giving you a generic one-shot prompt.
 
 ## Example Prompts
 
