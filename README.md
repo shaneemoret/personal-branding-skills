@@ -1,15 +1,30 @@
 # Personal Branding Skills
 
-Reusable AI skills for personal branding, authority building, and trust-driven inbound marketing.
+Production-grade AI skills for founders, consultants, and advisors who want stronger authority signals, trust-building brand assets, and more consistent inbound marketing outputs.
 
-## Current Skill
+This repo currently starts with one focused skill and is being built carefully rather than inflated with low-quality prompt dumps.
 
-- [`consulting-headshot`](skills/consulting-headshot/SKILL.md)
-  Generate professional headshot prompts for Nano Banana 2 and other vision-capable image models for LinkedIn, speaker bios, and about-page portraits.
+## Why This Repo Exists
 
-## What This Skill Is For
+Most prompt packs give you a clever first draft and then fall apart when the input is vague, the use case changes, or the output needs refinement.
 
-Use `consulting-headshot` when you want to generate or refine prompts for:
+These skills are different:
+
+- constraint-driven instead of style-first
+- built for real business use cases
+- designed to preserve identity and intent
+- structured to produce a usable first pass plus refinement steps
+- hardened against common failure modes
+
+## Current Skills
+
+| Skill | Purpose | Status |
+| --- | --- | --- |
+| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
+
+## What `consulting-headshot` Is For
+
+Use it when you want to generate or refine prompts for:
 
 - LinkedIn profile photos
 - speaker bio portraits
@@ -24,6 +39,13 @@ Do not use it for:
 - illustrated portraits
 - slide visuals
 
+## Compatibility
+
+This repo works best with:
+
+- Codex-compatible local skill folders
+- tools that load a skill from a folder containing a root `SKILL.md`
+
 ## How To Use It
 
 1. Clone the repo:
@@ -33,7 +55,9 @@ git clone https://github.com/shaneemoret/personal-branding-skills.git
 cd personal-branding-skills
 ```
 
-2. If you want to use the skill in a Codex-compatible local skill directory:
+2. Install the skill into your local skills directory.
+
+For Codex-compatible setups, `CODEX_HOME` is the local directory where installed skills live.
 
 ```bash
 mkdir -p "$CODEX_HOME/skills"
@@ -52,6 +76,20 @@ The skill is designed to:
 - produce a baseline prompt plus refinement prompts
 - generate only the crop variants needed for the requested use case
 
+## Verify Install
+
+After copying the skill into your tool's skills directory, restart the tool and try:
+
+> Create a LinkedIn headshot prompt for a consultant using a reference photo.
+
+You should get back:
+
+- a recommended visual direction
+- a quick baseline prompt
+- a base generation prompt
+- refinement prompts for lighting, expression, and crop
+- a likely failure mode plus a fix instruction
+
 ## Example Prompts
 
 Use the `consulting-headshot` skill for prompts like:
@@ -60,6 +98,15 @@ Use the `consulting-headshot` skill for prompts like:
 - `I need a speaker bio portrait that feels authoritative but still warm.`
 - `Generate a professional about-page portrait prompt for a consultant with no reference photo. Ask only for the appearance details you need.`
 - `Refine this headshot prompt so it reads better at LinkedIn thumbnail size.`
+
+## Example Outputs
+
+Browse the example files:
+
+- [`examples/linkedin-headshot-example.md`](examples/linkedin-headshot-example.md)
+- [`examples/speaker-bio-example.md`](examples/speaker-bio-example.md)
+- [`examples/text-only-identity-example.md`](examples/text-only-identity-example.md)
+- [`examples/failure-mode-repair-example.md`](examples/failure-mode-repair-example.md)
 
 ## What You Should Expect Back
 
@@ -79,22 +126,29 @@ The skill should return:
 - Specify the use case when you can: `LinkedIn`, `about page`, or `speaker bio`.
 - Ask for one use case at a time unless you truly need multiple crop variants.
 
+## Design Principles
+
+Skills in this repo should:
+
+- optimize for business outcome before style
+- preserve identity and intent
+- handle weak input without stalling
+- generate usable first-pass output plus refinements
+- include failure-mode correction where relevant
+
 ## Repo Structure
 
 ```text
 personal-branding-skills/
   README.md
+  LICENSE
   .gitignore
+  examples/
+    linkedin-headshot-example.md
+    speaker-bio-example.md
+    text-only-identity-example.md
+    failure-mode-repair-example.md
   skills/
     consulting-headshot/
       SKILL.md
 ```
-
-## Roadmap
-
-Likely next skills:
-
-- `linkedin-profile-optimizer`
-- `linkedin-post-engine`
-- `linkedin-offer-alignment`
-- `linkedin-dm-conversion`
