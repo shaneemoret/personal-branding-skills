@@ -6,6 +6,8 @@ These are not prompt packs. Each skill is a constraint-driven system built to ha
 
 This repo is being built as a modular personal-branding skill library: strategy skills, platform and content skills, visual-generation skills, and analysis skills that help repurpose raw material into usable brand assets.
 
+These systems are grounded in real distribution and client results, not theory: nearly 1M LinkedIn followers, a 27K private email list, 12K YouTube subscribers, and client work that has collectively generated millions in inbound revenue.
+
 ## Why This Repo Exists
 
 Most prompt packs give you a clever first draft and then fall apart when the input is vague, the platform changes, the audience gets more specific, or the output needs to hold up under iteration.
@@ -19,6 +21,15 @@ These skills are different:
 - **Hardened against common failure modes**
 
 These patterns are built for real personal-brand systems where work has to stay coherent across messaging, content formats, visuals, websites, and repurposing workflows.
+
+## Why Trust These Skills
+
+This repo is based on patterns tested inside an active personal brand and real client work, not isolated prompt experiments.
+
+- Built from a personal brand with nearly 1M LinkedIn followers
+- Informed by a 27K private email list and 12K YouTube audience
+- Shaped by client work that has collectively generated millions in inbound revenue
+- Designed from repeated use across public-facing content, brand assets, and demand-generation systems
 
 ## Skill Categories
 
