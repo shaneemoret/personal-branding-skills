@@ -1,16 +1,25 @@
 # Personal Branding Skills
 
-Production-grade AI skills for founders, consultants, coaches, and advisors who want to turn their personal brand into a consistent source of trust, visibility, and inbound demand.
+Production-grade AI skills for founders, consultants, coaches, and advisors who are done with generic prompt outputs.
 
-These are not prompt packs. Each skill is a constraint-driven system built to handle a specific personal-branding job under real-world conditions.
+These are constraint-driven systems designed to hold up under real distribution, real audiences, and real revenue pressure.
 
-This repo is being built as a modular personal-branding skill library: strategy skills, platform and content skills, visual-generation skills, and analysis skills that help repurpose raw material into usable brand assets.
+This is not a prompt library.
 
-These systems are grounded in real distribution and client results, not theory: nearly 1M LinkedIn followers, a 27K private email list, 12K YouTube subscribers, and client work that has collectively generated millions in inbound revenue.
+It is a system for turning raw ideas into consistent, high-quality personal-brand outputs across platforms without losing positioning, audience fit, or brand identity.
+
+This repo is being built as a modular personal-branding skill library: strategy skills, content skills, visual skills, and analysis skills that help repurpose raw material into usable brand assets.
 
 ## Why This Repo Exists
 
-Most prompt packs give you a clever first draft and then fall apart when the input is vague, the platform changes, the audience gets more specific, or the output needs to hold up under iteration.
+Most prompt packs break in predictable ways:
+
+- They produce outputs that sound right but do not convert
+- They lose positioning after one or two iterations
+- They ignore platform constraints, audience context, or conversion intent
+- They generate content and visuals that feel generic across industries
+
+This repo exists to solve those failure modes directly.
 
 These skills are different:
 
@@ -24,28 +33,56 @@ These patterns are built for real personal-brand systems where work has to stay 
 
 ## Why Trust These Skills
 
-This repo is based on patterns tested inside an active personal brand and real client work, not isolated prompt experiments.
+These systems are not theoretical.
 
-- Built from a personal brand with nearly 1M LinkedIn followers
-- Informed by a 27K private email list and 12K YouTube audience
-- Shaped by client work that has collectively generated millions in inbound revenue
-- Designed from repeated use across public-facing content, brand assets, and demand-generation systems
+They are built from:
+
+- A personal brand with nearly 1M LinkedIn followers
+- A 27K private email list and 12K YouTube audience
+- Client work that has collectively generated millions in inbound revenue
+
+The patterns in this repo reflect what actually holds up when:
+
+- content is distributed at scale
+- audiences are sophisticated
+- outputs must convert, not just look good
 
 ## Skill Categories
 
-This repo is intended to grow across four complementary skill families:
+This repo is structured as a system across four layers:
 
-- **Strategy skills** for ICP messaging, positioning, offers, and narrative clarity
-- **Platform and content skills** for LinkedIn, websites, newsletters, blogs, and other channel-specific content
-- **Image generation skills** for headshots, thumbnails, blog headers, and strategic visual assets
-- **Analysis and repurposing skills** for turning transcripts, datasets, performance signals, or long-form material into reusable brand content
+1. **Strategy** - ICP, positioning, messaging, and offers
+2. **Content** - platform-specific execution and distribution
+3. **Visuals** - images, thumbnails, and brand assets
+4. **Analysis** - repurposing, performance signals, and iteration
+
+Each layer feeds the next. Together, they form a complete personal-brand system.
+
+### Content Skills Are Organized By
+
+Each content skill is built around a specific combination of:
+
+- **Platform** - LinkedIn, YouTube, Website, Newsletter
+- **Format** - text post, live video, short video, article, page
+- **Intent** - authority, demand generation, education, conversion
+
+Examples of content skill types:
+
+- LinkedIn text posts for authority, insight, or narrative
+- LinkedIn live video for trust-building and demand generation
+- LinkedIn short video for reach and discovery
+- YouTube long-form for depth and authority
+- Newsletter content for relationship-building and conversion
+- Website pages for positioning and conversion
+
+Website content lives inside the Content layer as conversion content, not as a separate top-level category.
 
 ## Current Skills
 
-| Skill | Category | Purpose | Status |
+| Skill | Layer | Purpose | Status |
 | --- | --- | --- | --- |
-| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Image generation | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
-| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Image generation | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable |
+| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
+| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable |
 
 ## What `consulting-headshot` Is For
 
@@ -168,22 +205,22 @@ Browse the example files:
 
 ## What You Should Expect Back
 
-The skill should return:
+### Consulting Headshot Output
 
-- a recommended visual direction
-- a quick baseline prompt
-- a base generation prompt
-- refinement prompts for lighting, expression, and crop
-- a likely failure mode
-- a fix instruction for the next round
+- recommended visual direction
+- baseline prompt
+- generation prompt
+- refinement prompts
+- likely failure mode
+- fix instruction
 
-The visual concept skill should return:
+### ICP Visual Concept Generator Output
 
-- a sharpened claim, not just a topic
-- an ICP-specific visual strategy
-- one or two scene concepts with clear rationale
-- a production-ready prompt with color and typography discipline
-- platform-aware reuse guidance when full strategy mode is used
+- sharpened claim
+- ICP-specific visual strategy
+- 1-2 scene concepts
+- production-ready prompt
+- platform-aware variants in full mode
 
 ## Best Results
 
@@ -201,6 +238,17 @@ Skills in this repo should:
 - handle weak input without stalling
 - generate usable first-pass output plus refinements
 - include failure-mode correction where relevant
+
+## What Belongs In This Repo
+
+A skill should only be added if it:
+
+- solves a specific, recurring personal-branding job
+- encodes constraints that prevent common failure modes
+- produces usable output on the first pass
+- preserves positioning under iteration
+
+If it does not meet these criteria, it does not belong in this repo.
 
 ## Repo Structure
 
