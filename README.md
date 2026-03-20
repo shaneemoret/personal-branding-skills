@@ -4,7 +4,7 @@ Production-grade AI skills for founders, consultants, and advisors who want to t
 
 These are not prompt packs. Each skill is a constraint-driven system designed to produce reliable, business-ready outputs under real-world conditions.
 
-This repo starts with a single focused skill and will expand carefully into a fuller set of personal branding systems over time rather than being inflated with low-quality prompt dumps.
+This repo started with a single focused skill and expands carefully into a fuller set of personal branding systems over time rather than being inflated with low-quality prompt dumps.
 
 ## Why This Repo Exists
 
@@ -25,6 +25,7 @@ These patterns are based on real-world use cases where outputs must hold up acro
 | Skill | Purpose | Status |
 | --- | --- | --- |
 | [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
+| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable |
 
 ## What `consulting-headshot` Is For
 
@@ -42,6 +43,22 @@ Do not use it for:
 - AI avatars
 - illustrated portraits
 - slide visuals
+
+## What `icp-visual-concept-generator` Is For
+
+Use it when you want to generate or refine prompts for:
+
+- LinkedIn visuals tied to a clear audience and positioning claim
+- YouTube thumbnails that need authority, tension, or stop-scroll clarity
+- blog headers and newsletter visuals that support a business argument
+- repeatable content-system visuals for founders, consultants, coaches, and advisors
+
+Do not use it for:
+
+- generic image requests with no audience or positioning context
+- decorative illustrations where strategy is irrelevant
+- brandless moodboards
+- product renders or catalog-style images
 
 ## Compatibility
 
@@ -76,7 +93,13 @@ mkdir -p "$CODEX_HOME/skills"
 cp -R skills/consulting-headshot "$CODEX_HOME/skills/"
 ```
 
-3. If you use another tool with a local skills folder, copy `skills/consulting-headshot/` into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
+To install the visual strategy skill instead:
+
+```bash
+cp -R skills/icp-visual-concept-generator "$CODEX_HOME/skills/"
+```
+
+3. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/consulting-headshot/` or `skills/icp-visual-concept-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
 
 4. Prompt the model with a clear request and, if available, provide a reference photo.
 
@@ -105,6 +128,13 @@ Use the `consulting-headshot` skill for prompts like:
 - `Generate a professional about-page portrait prompt for a consultant with no reference photo. Ask only for the appearance details you need.`
 - `Refine this headshot prompt so it reads better at LinkedIn thumbnail size.`
 
+Use the `icp-visual-concept-generator` skill for prompts like:
+
+- `Turn this article idea into a LinkedIn visual for B2B consultants that signals authority without looking generic.`
+- `Create a YouTube thumbnail concept for founders stuck at $2M revenue.`
+- `Make a blog header prompt for this post idea, using my website colors and operator brand positioning.`
+- `Give me a fast-mode visual prompt for this newsletter idea with a technical ICP.`
+
 ## Example Outputs
 
 Browse the example files:
@@ -113,6 +143,7 @@ Browse the example files:
 - [`examples/speaker-bio-example.md`](examples/speaker-bio-example.md)
 - [`examples/text-only-identity-example.md`](examples/text-only-identity-example.md)
 - [`examples/failure-mode-repair-example.md`](examples/failure-mode-repair-example.md)
+- [`skills/icp-visual-concept-generator/references/examples.md`](skills/icp-visual-concept-generator/references/examples.md)
 
 ## What You Should Expect Back
 
@@ -124,6 +155,14 @@ The skill should return:
 - refinement prompts for lighting, expression, and crop
 - a likely failure mode
 - a fix instruction for the next round
+
+The visual concept skill should return:
+
+- a sharpened claim, not just a topic
+- an ICP-specific visual strategy
+- one or two scene concepts with clear rationale
+- a production-ready prompt with color and typography discipline
+- platform-aware reuse guidance when full strategy mode is used
 
 ## Best Results
 
@@ -157,4 +196,8 @@ personal-branding-skills/
   skills/
     consulting-headshot/
       SKILL.md
+    icp-visual-concept-generator/
+      SKILL.md
+      references/
+        examples.md
 ```
