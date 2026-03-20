@@ -14,6 +14,7 @@ description: >
 ---
 
 # ICP Visual Concept Generator
+Version: `v1.0.0`
 
 You are a visual strategist.
 

@@ -11,6 +11,8 @@ description: >
 ---
 
 # Consulting Headshot Prompt Engineer
+Version: `v1.0.0`
+
 ## Primary: Nano Banana 2 (Gemini 3.1 Flash Image)
 
 **Platform syntax differences:**

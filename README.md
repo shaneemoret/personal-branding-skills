@@ -12,6 +12,8 @@ It is a system for turning raw ideas into consistent, high-quality personal-bran
 
 This repo is being built as a modular personal-branding skill library: strategy skills, content skills, visual skills, and analysis skills that help repurpose raw material into usable brand assets.
 
+The current public release starts with Content and Visual skills. Strategy and Analysis layers will expand as more public-ready skills ship.
+
 ## Why This Repo Exists
 
 Most prompt packs break in predictable ways:
@@ -75,10 +77,27 @@ Website content lives inside the Content layer as conversion content, not as a s
 
 ## Current Skills
 
-| Skill | Layer | Purpose | Status |
-| --- | --- | --- | --- |
-| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
-| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable |
+| Skill | Layer | Purpose | Status | Version |
+| --- | --- | --- | --- | --- |
+| [`content-signal-evaluator`](skills/content-signal-evaluator/SKILL.md) | Content | Scores ideas by signal strength, buyer fit, and format leverage so you know what is worth building | Stable | `v1.0.0` |
+| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable | `v1.0.0` |
+| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable | `v1.0.0` |
+
+## What `content-signal-evaluator` Is For
+
+Use it when you want to:
+
+- rank several content ideas before picking what to build
+- evaluate whether a transcript-derived idea is strong enough for a post, blog, or newsletter
+- diagnose why an idea feels polished but still weak
+- upgrade a rough topic into a sharper, higher-signal claim
+
+Do not use it for:
+
+- writing the final asset
+- editing tone or grammar
+- thumbnail or image generation
+- broad trend summaries with no clear claim to evaluate
 
 ## What `consulting-headshot` Is For
 
@@ -135,24 +154,37 @@ git clone https://github.com/shaneemoret/personal-branding-skills.git
 cd personal-branding-skills
 ```
 
-2. Install the skill into your local skills directory. The exact location depends on your tool.
+2. Install skills with one command:
+
+```bash
+./install.sh
+```
+
+To install only one skill:
+
+```bash
+./install.sh content-signal-evaluator
+```
+
+3. Manual install also works if you prefer direct copying.
 
 For Codex-compatible setups, `CODEX_HOME` is the local directory where installed skills live.
 
 ```bash
 mkdir -p "$CODEX_HOME/skills"
-cp -R skills/consulting-headshot "$CODEX_HOME/skills/"
+cp -R skills/content-signal-evaluator "$CODEX_HOME/skills/"
 ```
 
-To install the visual strategy skill instead:
+To install specific visual skills instead:
 
 ```bash
+cp -R skills/consulting-headshot "$CODEX_HOME/skills/"
 cp -R skills/icp-visual-concept-generator "$CODEX_HOME/skills/"
 ```
 
-3. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/consulting-headshot/` or `skills/icp-visual-concept-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
+4. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/content-signal-evaluator/`, `skills/consulting-headshot/`, or `skills/icp-visual-concept-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
 
-4. Prompt the model with a clear request and provide the relevant source material for that skill when available, such as a reference photo, article idea, transcript, URL, brand kit, or dataset.
+5. Prompt the model with a clear request and provide the relevant source material for that skill when available, such as a reference photo, article idea, transcript, URL, brand kit, or dataset.
 
 Most skills in this repo are designed to:
 
@@ -166,11 +198,18 @@ Most skills in this repo are designed to:
 
 After copying a skill into your tool's skills directory, restart the tool and try one of the example prompts for that skill, such as:
 
-> Turn this article idea into a LinkedIn visual for B2B consultants that signals authority without looking generic.
+> Rank these three newsletter ideas for founders and tell me which one is strongest.
 
 If the install worked, the model should respond in the structured format described below rather than giving you a generic one-shot prompt.
 
 ## Example Prompts
+
+Use the `content-signal-evaluator` skill for prompts like:
+
+- `Evaluate these five ideas and tell me which one is strong enough for a LinkedIn post.`
+- `Rank these transcript-derived ideas by signal, buyer fit, and format leverage.`
+- `Is this a real claim or just a polished topic bucket?`
+- `Upgrade this idea if it is promising but not strong yet.`
 
 Use the `consulting-headshot` skill for prompts like:
 
@@ -190,6 +229,7 @@ Use the `icp-visual-concept-generator` skill for prompts like:
 
 Browse the example files:
 
+- [`skills/content-signal-evaluator/references/examples.md`](skills/content-signal-evaluator/references/examples.md)
 - [`examples/linkedin-headshot-example.md`](examples/linkedin-headshot-example.md)
 - [`examples/speaker-bio-example.md`](examples/speaker-bio-example.md)
 - [`examples/text-only-identity-example.md`](examples/text-only-identity-example.md)
@@ -197,6 +237,15 @@ Browse the example files:
 - [`skills/icp-visual-concept-generator/references/examples.md`](skills/icp-visual-concept-generator/references/examples.md)
 
 ## What You Should Expect Back
+
+### Content Signal Evaluator Output
+
+- ranked ideas or a single evaluated idea
+- `STRONG`, `PROMISING`, or `NOT READY` rating
+- scorecard across signal filters
+- primary failure mode
+- best format and best belief target
+- upgraded claim when the idea is not yet strong
 
 ### Consulting Headshot Output
 
@@ -250,12 +299,17 @@ personal-branding-skills/
   README.md
   LICENSE
   .gitignore
+  install.sh
   examples/
     linkedin-headshot-example.md
     speaker-bio-example.md
     text-only-identity-example.md
     failure-mode-repair-example.md
   skills/
+    content-signal-evaluator/
+      SKILL.md
+      references/
+        examples.md
     consulting-headshot/
       SKILL.md
     icp-visual-concept-generator/
