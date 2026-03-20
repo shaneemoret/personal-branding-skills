@@ -1,31 +1,40 @@
 # Personal Branding Skills
 
-Production-grade AI skills for founders, consultants, and advisors who want to turn their personal brand into a consistent source of inbound trust and demand.
+Production-grade AI skills for founders, consultants, coaches, and advisors who want to turn their personal brand into a consistent source of trust, visibility, and inbound demand.
 
-These are not prompt packs. Each skill is a constraint-driven system designed to produce reliable, business-ready outputs under real-world conditions.
+These are not prompt packs. Each skill is a constraint-driven system built to handle a specific personal-branding job under real-world conditions.
 
-This repo started with a single focused skill and expands carefully into a fuller set of personal branding systems over time rather than being inflated with low-quality prompt dumps.
+This repo is being built as a modular personal-branding skill library: strategy skills, platform and content skills, visual-generation skills, and analysis skills that help repurpose raw material into usable brand assets.
 
 ## Why This Repo Exists
 
-Most prompt packs give you a clever first draft and then fall apart when the input is vague, the use case changes, or the output needs refinement.
+Most prompt packs give you a clever first draft and then fall apart when the input is vague, the platform changes, the audience gets more specific, or the output needs to hold up under iteration.
 
 These skills are different:
 
 - **Constraint-driven, not style-first**
 - **Built for real business use cases, not demos**
 - **Designed to preserve identity and intent under iteration**
-- **Structured to produce a usable first pass plus targeted refinements**
+- **Structured to preserve strategy from first pass through refinement**
 - **Hardened against common failure modes**
 
-These patterns are based on real-world use cases where outputs must hold up across LinkedIn thumbnails, website layouts, and public-facing brand assets.
+These patterns are built for real personal-brand systems where work has to stay coherent across messaging, content formats, visuals, websites, and repurposing workflows.
+
+## Skill Categories
+
+This repo is intended to grow across four complementary skill families:
+
+- **Strategy skills** for ICP messaging, positioning, offers, and narrative clarity
+- **Platform and content skills** for LinkedIn, websites, newsletters, blogs, and other channel-specific content
+- **Image generation skills** for headshots, thumbnails, blog headers, and strategic visual assets
+- **Analysis and repurposing skills** for turning transcripts, datasets, performance signals, or long-form material into reusable brand content
 
 ## Current Skills
 
-| Skill | Purpose | Status |
-| --- | --- | --- |
-| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
-| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable |
+| Skill | Category | Purpose | Status |
+| --- | --- | --- | --- |
+| [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Image generation | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable |
+| [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Image generation | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable |
 
 ## What `consulting-headshot` Is For
 
@@ -69,11 +78,12 @@ This repo works best with:
 
 ## How These Skills Work
 
-Every skill in this repo is designed to follow the same pattern:
+Each skill in this repo is designed to capture the constraints that usually get lost between strategy and execution:
 
-1. Generate a usable first pass
-2. Apply targeted refinements to the parts most likely to fail
-3. Converge to a final output that works in real conditions
+1. Resolve the real task, audience, and format first
+2. Generate a usable output with the right defaults and guardrails
+3. Preserve brand, positioning, and platform fit through iteration
+4. Surface likely failure modes when quality is at risk
 
 ## How To Use It
 
@@ -101,21 +111,21 @@ cp -R skills/icp-visual-concept-generator "$CODEX_HOME/skills/"
 
 3. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/consulting-headshot/` or `skills/icp-visual-concept-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
 
-4. Prompt the model with a clear request and, if available, provide a reference photo.
+4. Prompt the model with a clear request and provide the relevant source material for that skill when available, such as a reference photo, article idea, transcript, URL, brand kit, or dataset.
 
-The skill is designed to:
+Most skills in this repo are designed to:
 
-- choose the right use case first
-- preserve identity
-- avoid common AI portrait failure modes
-- produce a baseline prompt plus refinement prompts
-- generate only the crop variants needed for the requested use case
+- identify the real use case before generating output
+- preserve strategic context, brand logic, and audience fit
+- handle weak input without stalling on every missing detail
+- produce a first pass that is actually usable
+- support iteration without losing the original positioning
 
 ## Verify Install
 
-After copying the skill into your tool's skills directory, restart the tool and try:
+After copying a skill into your tool's skills directory, restart the tool and try one of the example prompts for that skill, such as:
 
-> Create a LinkedIn headshot prompt for a consultant using a reference photo.
+> Turn this article idea into a LinkedIn visual for B2B consultants that signals authority without looking generic.
 
 If the install worked, the model should respond in the structured format described below rather than giving you a generic one-shot prompt.
 
@@ -166,10 +176,10 @@ The visual concept skill should return:
 
 ## Best Results
 
-- Provide a reference photo if exact likeness matters.
-- If no reference photo is available, describe hair, skin tone, glasses, facial hair, and any defining features.
-- Specify the use case when you can: `LinkedIn`, `about page`, or `speaker bio`.
-- Ask for one use case at a time unless you truly need multiple crop variants.
+- Provide the actual source material when it matters: reference photo, transcript, URL, notes, draft, dataset, or brand kit.
+- Specify the audience and platform whenever the skill depends on them.
+- Say whether you want a fast output or a fuller strategic pass when the skill supports both.
+- Ask for one core task at a time unless the skill explicitly supports multi-output workflows.
 
 ## Design Principles
 
