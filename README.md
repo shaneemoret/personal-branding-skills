@@ -6,6 +6,8 @@ These are constraint-driven systems designed to hold up under real distribution,
 
 This is not a prompt library.
 
+Most AI prompt libraries optimize for first-draft impressiveness. This repo optimizes for repeatable business usefulness.
+
 It is a system for turning raw ideas into consistent, high-quality personal-brand outputs across platforms without losing positioning, audience fit, or brand identity.
 
 This repo is being built as a modular personal-branding skill library: strategy skills, content skills, visual skills, and analysis skills that help repurpose raw material into usable brand assets.
@@ -33,13 +35,7 @@ These patterns are built for real personal-brand systems where work has to stay 
 
 ## Why Trust These Skills
 
-These systems are not theoretical.
-
-They are built from:
-
-- A personal brand with nearly 1M LinkedIn followers
-- A 27K private email list and 12K YouTube audience
-- Client work that has collectively generated millions in inbound revenue
+These skills are built from systems used inside a personal brand with nearly 1M LinkedIn followers, a 27K private email list, a 12K YouTube audience, and client work that has generated millions in inbound revenue.
 
 The patterns in this repo reflect what actually holds up when:
 
@@ -119,10 +115,7 @@ Do not use it for:
 
 ## Compatibility
 
-This repo works best with:
-
-- Codex-compatible local skill folders
-- tools that load a skill from a folder containing a root `SKILL.md`
+This repo works best with tools that load local skills from folders with a root `SKILL.md`, including Codex-compatible setups.
 
 ## How These Skills Work
 
