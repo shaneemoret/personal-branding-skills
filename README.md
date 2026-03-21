@@ -80,6 +80,7 @@ Website content lives inside the Content layer as conversion content, not as a s
 | Skill | Layer | Purpose | Status | Version |
 | --- | --- | --- | --- | --- |
 | [`content-signal-evaluator`](skills/content-signal-evaluator/SKILL.md) | Content | Scores ideas by signal strength, buyer fit, and format leverage so you know what is worth building | Stable | `v1.0.0` |
+| [`transcript-to-b2b-blog`](skills/transcript-to-b2b-blog/SKILL.md) | Content | Transforms real spoken transcripts into publishable B2B blog posts or LinkedIn articles without inventing signal, proof, or authority | Stable | `v1.0.0` |
 | [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable | `v1.0.0` |
 | [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable | `v1.0.0` |
 
@@ -98,6 +99,22 @@ Do not use it for:
 - editing tone or grammar
 - thumbnail or image generation
 - broad trend summaries with no clear claim to evaluate
+
+## What `transcript-to-b2b-blog` Is For
+
+Use it when you want to:
+
+- turn a LinkedIn Live, webinar, podcast, or presentation transcript into a publishable B2B article
+- preserve the speaker's real thinking while cleaning up spoken structure and repetition
+- downgrade weak transcripts honestly instead of padding them into fake long-form authority
+- keep a clear audit trail for thesis, key points, proof, buyer language, and omissions
+
+Do not use it for:
+
+- ghostwriting from scratch with no source transcript
+- idea generation from a vague topic
+- cleaning up raw notes that are not a transcript or recorded spoken content
+- inventing examples, proof, or frameworks the speaker never expressed
 
 ## What `consulting-headshot` Is For
 
@@ -210,6 +227,13 @@ Use the `content-signal-evaluator` skill for prompts like:
 - `Rank these transcript-derived ideas by signal, buyer fit, and format leverage.`
 - `Is this a real claim or just a polished topic bucket?`
 - `Upgrade this idea if it is promising but not strong yet.`
+
+Use the `transcript-to-b2b-blog` skill for prompts like:
+
+- `Turn this webinar transcript into a B2B blog post in my voice.`
+- `Rewrite this LinkedIn Live transcript into a publishable article without inventing anything.`
+- `This podcast transcript is messy. Turn it into a clean LinkedIn article and tell me what was omitted.`
+- `Just give me the article from this transcript. mode: clean_output`
 
 Use the `consulting-headshot` skill for prompts like:
 
