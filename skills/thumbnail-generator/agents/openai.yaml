@@ -1,0 +1,7 @@
+interface:
+  display_name: "Thumbnail Generator"
+  short_description: "Create premium video thumbnails"
+  default_prompt: "Use $thumbnail-generator to create a premium thumbnail from this title and photo."
+
+policy:
+  allow_implicit_invocation: true

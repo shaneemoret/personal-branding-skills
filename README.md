@@ -83,6 +83,7 @@ Website content lives inside the Content layer as conversion content, not as a s
 | [`transcript-to-b2b-blog`](skills/transcript-to-b2b-blog/SKILL.md) | Content | Transforms real spoken transcripts into publishable B2B blog posts or LinkedIn articles without inventing signal, proof, or authority | Stable | `v1.0.0` |
 | [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable | `v1.0.0` |
 | [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable | `v1.0.0` |
+| [`thumbnail-generator`](skills/thumbnail-generator/SKILL.md) | Visuals | Builds premium HTML thumbnails for expert-led video content by sharpening the hook first, then selecting the right thumbnail mode, composition, and visual constraints | Stable | `v1.0.0` |
 
 ## What `content-signal-evaluator` Is For
 
@@ -149,6 +150,23 @@ Do not use it for:
 - brandless moodboards
 - product renders or catalog-style images
 
+## What `thumbnail-generator` Is For
+
+Use it when you want to:
+
+- create a premium YouTube thumbnail from a title and photo
+- generate a LinkedIn or course thumbnail that feels authoritative instead of generic
+- improve click-through by sharpening the hook before designing
+- turn a strong stance or contrarian claim into a visual that still feels high-trust
+
+Do not use it for:
+
+- quote graphics or social cards
+- infographic-style layouts
+- generic banners
+- meme thumbnails
+- collage-heavy designs with multiple competing ideas
+
 ## Compatibility
 
 This repo works best with tools that load local skills from folders with a root `SKILL.md`, including Codex-compatible setups.
@@ -197,9 +215,10 @@ To install specific visual skills instead:
 ```bash
 cp -R skills/consulting-headshot "$CODEX_HOME/skills/"
 cp -R skills/icp-visual-concept-generator "$CODEX_HOME/skills/"
+cp -R skills/thumbnail-generator "$CODEX_HOME/skills/"
 ```
 
-4. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/content-signal-evaluator/`, `skills/consulting-headshot/`, or `skills/icp-visual-concept-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
+4. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/content-signal-evaluator/`, `skills/consulting-headshot/`, `skills/icp-visual-concept-generator/`, or `skills/thumbnail-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
 
 5. Prompt the model with a clear request and provide the relevant source material for that skill when available, such as a reference photo, article idea, transcript, URL, brand kit, or dataset.
 
@@ -249,6 +268,13 @@ Use the `icp-visual-concept-generator` skill for prompts like:
 - `Make a blog header prompt for this post idea, using my website colors and operator brand positioning.`
 - `Give me a fast-mode visual prompt for this newsletter idea with a technical ICP.`
 
+Use the `thumbnail-generator` skill for prompts like:
+
+- `Create a YouTube thumbnail from this title and headshot.`
+- `Use $thumbnail-generator to sharpen this hook and make me a premium thumbnail.`
+- `Make a LinkedIn video thumbnail for this contrarian idea without making it look clickbait.`
+- `I have a course title and a photo. Turn it into a clean premium thumbnail.`
+
 ## Example Outputs
 
 Browse the example files:
@@ -259,6 +285,7 @@ Browse the example files:
 - [`examples/text-only-identity-example.md`](examples/text-only-identity-example.md)
 - [`examples/failure-mode-repair-example.md`](examples/failure-mode-repair-example.md)
 - [`skills/icp-visual-concept-generator/references/examples.md`](skills/icp-visual-concept-generator/references/examples.md)
+- [`skills/thumbnail-generator/references/examples.md`](skills/thumbnail-generator/references/examples.md)
 
 ## What You Should Expect Back
 
@@ -287,6 +314,14 @@ Browse the example files:
 - 1-2 scene concepts
 - production-ready prompt
 - platform-aware variants in full mode
+
+### Thumbnail Generator Output
+
+- sharpened thumbnail hook
+- chosen mode and dominance decision
+- production-ready HTML thumbnail artifact
+- short rationale for text and mode choice
+- clear iteration directions for refinement
 
 ## Best Results
 

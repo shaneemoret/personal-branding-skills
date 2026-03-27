@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thumbnail Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #080808;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 32px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .scale-wrap {
+      transform: scale(0.70);
+      transform-origin: top center;
+      margin-bottom: -224px;
+    }
+
+    .thumbnail {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      background: [BG_COLOR];
+      overflow: hidden;
+    }
+
+    /* Depth vignette — does not compete with text or face */
+    .thumbnail::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 90% at 25% 50%, transparent 40%, rgba(0,0,0,0.35) 100%),
+        linear-gradient(to right, rgba(0,0,0,0.15) 0%, transparent 45%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .text-area {
+      position: absolute;
+      left: [TEXT_LEFT];
+      top: 50%;
+      transform: translateY(-50%);
+      width: [TEXT_WIDTH];
+      z-index: 4;
+    }
+
+    .title {
+      font-family: [FONT_FAMILY], Georgia, serif;
+      font-size: [FONT_SIZE]px;
+      font-weight: [FONT_WEIGHT];
+      color: [TEXT_COLOR];
+      line-height: 1.02;
+      letter-spacing: -0.5px;
+      word-break: keep-all;
+    }
+
+    /* Only include if subtitle is needed. Minimum effective size: 42px. */
+    .subtitle {
+      font-family: [FONT_FAMILY], Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      color: [TEXT_COLOR];
+      opacity: 0.65;
+      margin-top: 18px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .person {
+      position: absolute;
+      right: 0;
+      top: [FACE_TOP];
+      height: [FACE_HEIGHT];
+      width: auto;
+      max-width: 60%;
+      z-index: 2;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .instructions {
+      color: #444;
+      font-size: 13px;
+      line-height: 1.9;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .instructions strong { color: #666; }
+  </style>
+</head>
+<body>
+
+  <div class="scale-wrap">
+    <div class="thumbnail">
+
+      <div class="text-area">
+        <div class="title">[LINE_1]<br>[LINE_2]</div>
+        <!-- <div class="subtitle">[SUBTITLE]</div> -->
+      </div>
+
+      <!--
+        PHOTO BLEND NOTES:
+        Dark/transparent bg → mix-blend-mode: normal
+        Light/studio bg     → mix-blend-mode: luminosity
+        Never exceed brightness 1.10 or contrast 1.15 — eyes must stay visible
+      -->
+      <img
+        class="person"
+        src="[PHOTO_SRC]"
+        alt=""
+        style="mix-blend-mode: [BLEND_MODE]; filter: brightness([BRIGHTNESS]) contrast([CONTRAST]);"
+      />
+
+    </div>
+  </div>
+
+  <p class="instructions">
+    <strong>To export:</strong> Right-click → save as image, or screenshot.<br>
+    Rendered at <strong>1280 × 720px</strong> (YouTube standard). Scale wrapper is display-only.
+  </p>
+
+</body>
+</html>
+
+
+<!--
+================================================================
+VARIABLE REFERENCE
+================================================================
+
+MODE 1 — Executive Authority (premium educational, identity-led)
+  BG_COLOR    #1a1a1a  |  TEXT_COLOR  #C9A84C
+  FONT_FAMILY Cormorant Garamond  |  FONT_WEIGHT 500  |  FONT_SIZE 128–132px
+  BLEND_MODE  luminosity  |  BRIGHTNESS 1.08  |  CONTRAST 1.10
+
+MODE 2 — High-Contrast Authority (strong promise, urgency)
+  BG_COLOR    #0a0a0a  |  TEXT_COLOR  #FFFFFF
+  FONT_FAMILY Playfair Display  |  FONT_WEIGHT 700  |  FONT_SIZE 110–120px
+  BLEND_MODE  normal  |  BRIGHTNESS 1.05  |  CONTRAST 1.08
+
+MODE 3 — Strategic Tension (curiosity-gap, contrast)
+  BG_COLOR    #1a1a1a  |  TEXT_COLOR  #C9A84C
+  FONT_FAMILY Cormorant Garamond  |  FONT_WEIGHT 500  |  FONT_SIZE 118–125px
+  BLEND_MODE  luminosity  |  BRIGHTNESS 1.06  |  CONTRAST 1.10
+  NOTE: tighter face crop, more negative space, slight asymmetry
+
+MODE 4 — Minimal Editorial (courses, LinkedIn, paid content)
+  BG_COLOR    #1a1a1a  |  TEXT_COLOR  #FFFFFF
+  FONT_FAMILY Cormorant Garamond  |  FONT_WEIGHT 400  |  FONT_SIZE 115–125px
+  BLEND_MODE  luminosity  |  BRIGHTNESS 1.05  |  CONTRAST 1.08
+
+MODE 5 — Controlled Disruption (contrarian, bold opinion)
+  BG_COLOR    #0a0a0a  |  TEXT_COLOR  #FFFFFF
+  FONT_FAMILY Playfair Display  |  FONT_WEIGHT 700  |  FONT_SIZE 100–115px
+  BLEND_MODE  normal  |  BRIGHTNESS 1.05  |  CONTRAST 1.10
+  NOTE: face larger, tighter — expression direct, not angry
+
+────────────────────────────────────────────────────────────────
+COMPOSITION
+────────────────────────────────────────────────────────────────
+Text-led (default):
+  TEXT_LEFT 68px  |  TEXT_WIDTH 620px  |  FACE_TOP -5%  |  FACE_HEIGHT 115%
+
+Face-led (personality/opinion-driven):
+  TEXT_LEFT 52px  |  TEXT_WIDTH 480px  |  FACE_TOP -10%  |  FACE_HEIGHT 125%
+
+────────────────────────────────────────────────────────────────
+FONT SIZE BY WORD COUNT
+────────────────────────────────────────────────────────────────
+  2 words                  → 132px
+  3 words                  → 118px
+  4 words / 2 lines        → 105px
+  5 words / 2 lines        → 96px
+  Minimum                  → 90px
+
+────────────────────────────────────────────────────────────────
+TASTE CONSTRAINTS (every output, no exceptions)
+────────────────────────────────────────────────────────────────
+  - One text treatment only — no mixed fonts, sizes, or colors
+  - No decorative elements unless they improve clarity
+  - Eyes must be clearly visible — never lost in shadow or crop
+  - Natural skin tone — brightness ≤ 1.10, contrast ≤ 1.15
+  - No subtitle smaller than 42px — if unreadable at thumb size, cut it
+  - One idea only
+
+================================================================
+-->
