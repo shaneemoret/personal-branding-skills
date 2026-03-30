@@ -12,7 +12,7 @@ It is a system for turning raw ideas into consistent, high-quality personal-bran
 
 This repo is being built as a modular personal-branding skill library: strategy skills, content skills, visual skills, and analysis skills that help repurpose raw material into usable brand assets.
 
-The current public release starts with Content and Visual skills. Strategy and Analysis layers will expand as more public-ready skills ship.
+The current public release includes Content, Visual, and Analysis skills. Strategy layers will expand as more public-ready skills ship.
 
 ## Why This Repo Exists
 
@@ -83,6 +83,7 @@ Website content lives inside the Content layer as conversion content, not as a s
 | [`transcript-to-b2b-blog`](skills/transcript-to-b2b-blog/SKILL.md) | Content | Transforms real spoken transcripts into publishable B2B blog posts or LinkedIn articles without inventing signal, proof, or authority | Stable | `v1.0.0` |
 | [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable | `v1.0.0` |
 | [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable | `v1.0.0` |
+| [`website-audit-seo-geo`](skills/website-audit-seo-geo/SKILL.md) | Analysis | Audits live websites and repo source for technical SEO, GEO, performance, accessibility, UX, and conversion issues with evidence-first reporting | Stable | `v1.0.0` |
 
 ## What `content-signal-evaluator` Is For
 
@@ -148,6 +149,23 @@ Do not use it for:
 - decorative illustrations where strategy is irrelevant
 - brandless moodboards
 - product renders or catalog-style images
+
+## What `website-audit-seo-geo` Is For
+
+Use it when you want to:
+
+- audit a live website for technical SEO, GEO, performance, accessibility, UX, and conversion
+- compare a production site against repo or GitHub source code
+- validate Search Console issues without overreacting to canonical noise
+- separate real issues from harmless alternate URLs or already-live fixes
+- produce a prioritized, evidence-backed website audit instead of vague recommendations
+
+Do not use it for:
+
+- writing website copy from scratch
+- redesigning pages without first diagnosing what is wrong
+- speculative audits where neither live URL access nor source access exists
+- generic marketing opinions with no verifiable site evidence
 
 ## Compatibility
 
