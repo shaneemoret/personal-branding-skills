@@ -1,114 +1,300 @@
-# Audit Categories — Detailed Checklists
+# Audit Categories
 
-Reference this file during Phases 1 and 2 of the audit workflow.
+Read this file for detailed Technical SEO, Performance, Accessibility, and UX reviews.
 
-**Use this as a review checklist, not a reporting checklist.** Do not report every item. Report only the highest-signal issues with evidence. Prefer systemic or template-level issues over repeating the same issue across many individual pages.
+These checklists support the main skill. Report findings only when they are supported by evidence and tied to business impact.
 
----
+## Technical SEO
 
-## 1. Technical SEO
+### Crawlability
 
-- Canonical tags — present, correct, self-referencing where appropriate
-- Status codes — 200s, 301s, 404s, soft 404s
-- Redirect chains — length, loops, unnecessary hops
-- www vs. non-www consistency
-- HTTP → HTTPS consistency
+Verify:
+
+- `robots.txt` exists and is valid
+- XML sitemap exists and is accessible
+- Sitemap contains canonical URLs
+- Important pages are crawlable
+- Important pages are not accidentally blocked
+- Indexable pages are intended to be indexable
+
+Review:
+
+- Robots directives
+- Meta robots tags
+- `X-Robots-Tag` headers
+- `noindex` usage
+- `nofollow` usage
+
+### Canonicals
+
+Verify:
+
+- Self-referencing canonicals where appropriate
+- Canonicals point to valid destinations
+- Canonicals do not conflict with redirects
+- Canonicals are consistent across templates
+
+Do not flag:
+
+- Properly canonicalized URL variants
+- Proper faceted-navigation canonicals
+- Expected platform behavior
+
+### Redirects
+
+Review:
+
+- HTTP to HTTPS behavior
+- WWW vs. non-WWW consistency
 - Trailing slash consistency
-- Indexability — noindex misuse, accidental exclusions
-- robots.txt — present, correct, not over-blocking
-- XML sitemap — present, valid, accurate coverage, no noindexed URLs included
-- Meta titles — present, unique, correctly length, keyword-relevant
-- Meta descriptions — present, unique, not truncated
-- H1 / title alignment
-- Open Graph tags — og:title, og:description, og:image, og:url
-- Twitter/X tags
-- Schema / JSON-LD — present, valid, consistent across templates
-- Duplicate metadata across page templates
-- Internal linking structure — anchor text quality, link depth
-- Orphan page risk
-- Crawl traps — infinite scroll, filter parameters, faceted navigation
-- Pagination handling — consistent crawl/index strategy for paginated content where relevant
-- Archive / tag / search page handling
+- Redirect chains
+- Redirect loops
 
----
+Flag only redirects that create measurable SEO, UX, or performance issues.
 
-## 2. AI Search / GEO
+### Metadata
 
-- Entity clarity — is it obvious who this company/person is?
-- Business category clarity — does the site clearly state what it does and who it serves?
-- Author / entity consistency across pages
-- Structured data usefulness for LLMs (not just for Google)
-- llms.txt — present or absent (note if missing, but do not overstate its importance)
-- Citation-ready pages — which pages are strong enough for an LLM to confidently cite?
-- Proof density — testimonials, case studies, results, data
-- Original insight depth — does the site publish anything genuinely useful?
-- Topical authority — breadth and depth of coverage in the site's domain
-- Outdated or conflicting brand messaging
-- Weak generic marketing language that gives LLMs nothing to work with
-- Pages most likely to be cited by: ChatGPT / Claude / Perplexity / Google AI Overviews
-- Pages most likely to be ignored because they are vague, duplicative, or low-signal
+Evaluate:
 
-**The six questions an AI system should be able to answer from this site:**
-1. Who is this?
-2. What do they do?
-3. Who is it for?
-4. Why are they credible?
-5. What proof exists?
-6. Which page is safest to cite?
+- Page titles
+- Meta descriptions
+- Open Graph tags
+- Twitter card tags
 
-If the site cannot answer all six clearly, flag the gaps.
+Look for:
 
----
+- Missing metadata
+- Duplicate metadata
+- Template-level issues
+- Weak commercial intent signals
 
-## 3. Performance
+### Structured Data
 
-Do not treat a likely performance issue as confirmed unless supported by measurements, transfer-size evidence, or clear source-level proof.
+Review relevant schema:
 
-- Total page weight
-- Large JavaScript bundles
-- Oversized or unoptimized images
-- Missing or broken lazy loading
-- LCP risks — largest above-the-fold element load behavior
-- CLS risks — layout shifts visible from code patterns
-- Duplicated payload (same library loaded multiple times)
-- Render-blocking resources — CSS, JS in `<head>`
-- Web font loading strategy
-- Third-party script bloat — analytics, chat widgets, embeds
-- Mobile performance risks
-- Unnecessary client-side rendering where SSR/SSG would be better
-- Hydration-heavy patterns (Next.js, Nuxt, etc.) — is hydration deferred appropriately?
+- Organization
+- Person
+- Article
+- FAQ
+- Product
+- Service
+- LocalBusiness
+- Breadcrumb
 
----
+Check:
 
-## 4. UX / Conversion
+- Validity
+- Relevance
+- Consistency
+- Entity clarity
 
-- Audience fit clarity — is it obvious who the page is for and who it is not for?
-- Headline clarity — does the homepage H1 immediately communicate what the site does?
-- Above-the-fold clarity — can a visitor understand the offer in 5 seconds?
-- CTA visibility — primary CTA above the fold, contrasting, specific
-- CTA specificity — "Get started" vs. "Book a free 30-min call"
-- Trust signals — logos, reviews, awards, guarantees — placement and prominence
-- Proof placement — are results and testimonials near conversion points?
-- Page hierarchy — does the visual structure guide the eye correctly?
-- Message clarity — is the offer, audience, and outcome stated plainly?
-- Confusion / friction points — form length, unclear steps, hidden pricing
-- Weak landing-page flow — does the page build toward a clear next action?
-- Mobile usability — tap targets, font sizes, sticky nav behavior
-- Poor scannability — walls of text, no visual hierarchy
+### Internal Linking
 
----
+Review:
 
-## 5. Accessibility
+- Navigation structure
+- Footer structure
+- Contextual links
+- Orphaned pages
+- Excessively deep pages
 
-Only report accessibility issues that are confirmed or strongly implied by markup or observed behavior. Do not speculate.
+Focus on:
 
-- Heading hierarchy — H1 → H2 → H3 in logical order, no skipped levels
-- Alt text — present, descriptive, not keyword-stuffed, empty for decorative images
-- Color contrast — text and UI elements meet WCAG AA minimums
-- Keyboard accessibility — all interactive elements reachable and operable via keyboard
-- Focus indicators — visible on interactive elements
-- Form labeling — every input has an associated `<label>`
-- Button / link clarity — descriptive text, not "click here" or "read more"
-- ARIA misuse — aria-label, aria-hidden, role used correctly
-- Navigation / menu accessibility — hamburger menus, dropdowns, skip links
-- Semantic HTML — appropriate use of `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`
+- Discovery
+- Authority flow
+- Buyer journey support
+
+### Site Architecture
+
+Evaluate:
+
+- Content hierarchy
+- Service hierarchy
+- URL structure
+- Category structure
+- Topic clusters
+
+Determine whether the architecture supports search engines, AI systems, and human navigation.
+
+## Performance
+
+Classify every performance finding as:
+
+- Measured
+- Observed likely
+- Possible
+
+Never report unmeasured performance issues as confirmed.
+
+### Core Web Vitals
+
+Evaluate when measurable:
+
+- Largest Contentful Paint (LCP)
+- Interaction to Next Paint (INP)
+- Cumulative Layout Shift (CLS)
+
+### Asset Efficiency
+
+Review:
+
+- Image sizing
+- Image formats
+- Responsive images
+- Video handling
+- Font loading
+
+Identify the largest contributors to page weight.
+
+### Rendering
+
+Review:
+
+- Render-blocking resources
+- Excessive JavaScript
+- Hydration-heavy implementations
+- Third-party script impact
+
+Focus on user impact, not theoretical purity.
+
+### Mobile Performance
+
+Evaluate:
+
+- Mobile payload size
+- Mobile responsiveness
+- Touch usability
+- Mobile rendering quality
+
+## Accessibility
+
+Accessibility findings must affect usability, compliance risk, discoverability, or conversion. Avoid checklist theater.
+
+### Semantic Structure
+
+Review:
+
+- Heading hierarchy
+- Landmark regions
+- Navigation structure
+- Form structure
+
+### Visual Accessibility
+
+Review:
+
+- Contrast
+- Readability
+- Font sizing
+- Zoom behavior
+
+### Interaction Accessibility
+
+Review:
+
+- Keyboard navigation
+- Focus states
+- Form usability
+- Error handling
+
+### Media Accessibility
+
+Review:
+
+- Alt text quality
+- Decorative image handling
+- Captions where appropriate
+
+## User Experience
+
+UX findings must be tied to a measurable business outcome:
+
+- Clarity
+- Trust
+- Conversion
+- Retention
+- Navigation efficiency
+
+Avoid subjective design opinions.
+
+### Information Clarity
+
+Can users quickly understand:
+
+- What the company does
+- Who it serves
+- Why it matters
+- What action to take
+
+### Navigation
+
+Review:
+
+- Menu structure
+- Search
+- Internal pathways
+- Dead ends
+
+Identify friction points.
+
+### Mobile Experience
+
+Evaluate:
+
+- Mobile layouts
+- Content prioritization
+- CTA visibility
+- Reading experience
+
+### Trust Experience
+
+Review:
+
+- Proof visibility
+- Testimonials
+- Case studies
+- Authority indicators
+- Team information
+
+### Conversion Experience
+
+Review:
+
+- CTA placement
+- Offer clarity
+- Contact flow
+- Lead capture friction
+- Objection handling
+
+Route detailed conversion findings to the Conversion and Commercial Intent review.
+
+## Evidence Requirements
+
+Every finding should include:
+
+- Evidence source
+- URL
+- Severity
+- Impact
+- Effort
+- Confidence
+
+If evidence is incomplete, label the finding:
+
+`Possible — needs confirmation`
+
+Do not elevate assumptions into findings.
+
+## Reporting Principle
+
+The purpose of this audit is not to identify every possible issue.
+
+The purpose is to identify the few improvements most likely to increase:
+
+- Visibility
+- Citations
+- Trust
+- Leads
+- Revenue
+
+Prioritize outcomes over checklists.

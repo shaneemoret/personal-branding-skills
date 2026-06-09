@@ -83,7 +83,7 @@ Website content lives inside the Content layer as conversion content, not as a s
 | [`transcript-to-b2b-blog`](skills/transcript-to-b2b-blog/SKILL.md) | Content | Transforms real spoken transcripts into publishable B2B blog posts or LinkedIn articles without inventing signal, proof, or authority | Stable | `v1.0.0` |
 | [`consulting-headshot`](skills/consulting-headshot/SKILL.md) | Visuals | Generates trust-building headshot prompts for LinkedIn, speaker bios, and about-page portraits | Stable | `v1.0.0` |
 | [`icp-visual-concept-generator`](skills/icp-visual-concept-generator/SKILL.md) | Visuals | Turns a content idea into a strategic thumbnail or visual prompt that matches ICP psychology, platform constraints, and brand positioning | Stable | `v1.0.0` |
-| [`website-audit-seo-geo`](skills/website-audit-seo-geo/SKILL.md) | Analysis | Audits live websites and repo source for technical SEO, GEO, performance, accessibility, UX, and conversion issues with evidence-first reporting | Stable | `v1.0.0` |
+| [`website-audit-seo-geo`](skills/website-audit-seo-geo/SKILL.md) | Analysis | Audits live websites and repo source for technical SEO, GEO, entity strength, citation readiness, design trust, performance, accessibility, UX, and conversion issues with evidence-first reporting | Stable | `v1.1.0` |
 
 ## What `content-signal-evaluator` Is For
 
@@ -154,7 +154,7 @@ Do not use it for:
 
 Use it when you want to:
 
-- audit a live website for technical SEO, GEO, performance, accessibility, UX, and conversion
+- audit a live website for technical SEO, GEO, entity strength, citation readiness, design trust, performance, accessibility, UX, and conversion
 - compare a production site against repo or GitHub source code
 - validate Search Console issues without overreacting to canonical noise
 - separate real issues from harmless alternate URLs or already-live fixes
@@ -201,6 +201,12 @@ To install only one skill:
 ./install.sh content-signal-evaluator
 ```
 
+To install only the website audit skill:
+
+```bash
+./install.sh website-audit-seo-geo
+```
+
 3. Manual install also works if you prefer direct copying.
 
 For Codex-compatible setups, `CODEX_HOME` is the local directory where installed skills live.
@@ -217,7 +223,34 @@ cp -R skills/consulting-headshot "$CODEX_HOME/skills/"
 cp -R skills/icp-visual-concept-generator "$CODEX_HOME/skills/"
 ```
 
-4. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/content-signal-evaluator/`, `skills/consulting-headshot/`, or `skills/icp-visual-concept-generator/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
+To install the website audit skill manually:
+
+```bash
+cp -R skills/website-audit-seo-geo "$CODEX_HOME/skills/"
+```
+
+4. If you use another tool with a local skills folder, copy the specific skill folder you want - for example `skills/content-signal-evaluator/`, `skills/consulting-headshot/`, `skills/icp-visual-concept-generator/`, or `skills/website-audit-seo-geo/` - into that tool's skills directory and keep `SKILL.md` at the root of the skill folder.
+
+## Client Quick Start For Website Audits
+
+Send a client this repo link and tell them:
+
+1. Clone the repo.
+2. Run `./install.sh website-audit-seo-geo`.
+3. Restart Codex or the local AI tool if it caches skills.
+4. Ask for an audit with a live URL.
+
+Example client prompt:
+
+```txt
+Use the website-audit-seo-geo skill to audit https://example.com.
+
+Prioritize evidence-backed findings that affect SEO, AI search/GEO visibility,
+entity clarity, citation readiness, design trust, conversion, performance, and
+accessibility. Start with the live production site. If repo access is available,
+compare the source code against production and tell me what is live, what is
+fixed only in code, and what is not actually an issue.
+```
 
 5. Prompt the model with a clear request and provide the relevant source material for that skill when available, such as a reference photo, article idea, transcript, URL, brand kit, or dataset.
 

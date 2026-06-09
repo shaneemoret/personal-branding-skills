@@ -18,6 +18,7 @@ Usage:
 Examples:
   ./install.sh
   ./install.sh content-signal-evaluator
+  ./install.sh website-audit-seo-geo
   ./install.sh consulting-headshot icp-visual-concept-generator
 EOF
 }
